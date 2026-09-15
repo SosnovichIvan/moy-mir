@@ -67,3 +67,7 @@ This policy never expands permissions or overrides explicit user instructions.
 
 Read and apply [agentSkills/execution-state/SKILL.md](agentSkills/execution-state/SKILL.md) when this policy requires routing.
 <!-- agent-skills-lab:execution-policy:end -->
+
+## GitHub: защищённые ветки
+
+`main` и `develop` изменять только через PR. Ревью — `SosnovichIvan` согласно `.github/CODEOWNERS`. Только владелец имеет PR-only bypass; агент не использует его автоматически, даже работая с его учётными данными. Для будущего слияния без approval требуется явное указание пользователя для конкретного PR. См. [правила репозитория](techDocs/process/repository-rules.md).
