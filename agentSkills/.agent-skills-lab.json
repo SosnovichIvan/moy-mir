@@ -1,0 +1,151 @@
+{
+  "schema_version": 2,
+  "installer_version": "1.0.0",
+  "agent_adapter": "codex",
+  "skills": {
+    "project-architecture": {
+      "name": "Project Architecture",
+      "description": "Границы системы, контракты, ADR и план реализации/перехода.",
+      "options": [],
+      "option_names": [],
+      "version": "0.1.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "c77a9a4eb08c4ab95a66840366a3385df79aa0eeb66f0a61eafbcf2b5d1e4333"
+    },
+    "ui-ux-design": {
+      "name": "UI/UX Design",
+      "description": "Локальный поиск и применение UI/UX-рекомендаций: visual direction, design systems, accessibility, interaction, responsive layout, typography, color и charts.",
+      "options": [],
+      "option_names": [],
+      "version": "0.2.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "0908771c37f1b30fe3c1f27f7344cdf80e86844dac7a69ee586b28352764a5c7"
+    },
+    "ux-writing": {
+      "name": "UX Writing",
+      "description": "Тексты действий, форм, ошибок и состояний интерфейса.",
+      "options": [],
+      "option_names": [],
+      "version": "0.1.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "bd6ace9cd6152aaca5178a46105a70496b63225a4244718de6024a5debbea86a"
+    },
+    "icon-system": {
+      "name": "Icon System",
+      "description": "Подбор, создание и интеграция согласованного набора SVG-иконок.",
+      "options": [],
+      "option_names": [],
+      "version": "0.1.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "a407afc1d0951223fbc2480005e7933e7c8f0e992bb280f0481c0d0e8f666f2b"
+    },
+    "frontend-engineering": {
+      "name": "Frontend Engineering",
+      "description": "Реализация frontend-сценариев с архитектурой, доступностью, API и проверками выбранного стека.",
+      "options": [
+        "typescript",
+        "react",
+        "structure-flexible"
+      ],
+      "option_names": [
+        "TypeScript",
+        "React",
+        "Flexible logic-based"
+      ],
+      "version": "0.1.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "fdd14e42e647927f04a8feea5fb9355e85b44c666a2275b36dde92fda60e7dcb"
+    },
+    "frontend-review": {
+      "name": "Frontend Review",
+      "description": "Ревью frontend-кода с доказательствами функциональных регрессий.",
+      "options": [],
+      "option_names": [],
+      "version": "0.1.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "42bb8dafe1ece578216ea66de2668e685d4f604414ca1b45fcd4577619c1d02e"
+    },
+    "backend-engineering": {
+      "name": "Backend Engineering",
+      "description": "Реализация API, domain logic, persistence, безопасности и эксплуатации backend-сервисов.",
+      "options": [
+        "node-typescript"
+      ],
+      "option_names": [
+        "Node.js / TypeScript"
+      ],
+      "version": "0.1.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "67692e0391e8b0943d02f8ca7cf6fb24d390012340b0604e588b5ca99ba2ed5b"
+    },
+    "backend-review": {
+      "name": "Backend Review",
+      "description": "Ревью контрактов, авторизации, конкурентности и отказов сервисов.",
+      "options": [],
+      "option_names": [],
+      "version": "0.1.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "118fffa13e18268bc414801b88d99811c67657f2d3f9eb1761a3e8015fdc0e56"
+    },
+    "database-engineering": {
+      "name": "Database Engineering",
+      "description": "Схемы, SQL, индексы, миграции и backfill реляционных БД.",
+      "options": [
+        "postgresql"
+      ],
+      "option_names": [
+        "PostgreSQL"
+      ],
+      "version": "0.1.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "2522c3ed2e052fa5e8dcb0069f4250847d5fa99d4fc68e08db2c1f7df0b1aee9"
+    },
+    "database-review": {
+      "name": "Database Review",
+      "description": "Ревью SQL, миграций, изоляции данных и совместимости rollout.",
+      "options": [
+        "postgresql"
+      ],
+      "option_names": [
+        "PostgreSQL"
+      ],
+      "version": "0.1.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "821976d697c75461e5a1407fc472e8e2702b5f4c3b96d81377bec330c7f4da2b"
+    },
+    "execution-state": {
+      "name": "Execution State",
+      "description": "Ведёт компактное состояние длинной агентной задачи и уменьшает повторную передачу истории.",
+      "options": [],
+      "option_names": [],
+      "version": "1.0.0",
+      "required_by": [],
+      "installed_at": "2026-09-15T13:36:10.481671+00:00",
+      "content_sha256": "8a25b8179193fd34f4104363df6e75ac1f67f5f1f62ec1cabd1da30d8cbc68b5"
+    }
+  },
+  "policies": {
+    "project-rules": {
+      "approved_at": "2026-09-15T13:36:10.486652+00:00",
+      "consent": "cli",
+      "rules": {}
+    },
+    "execution-state": {
+      "scope": "all_tasks",
+      "routing": "adaptive",
+      "enforcement": "instructions",
+      "failure_mode": "report",
+      "skill_path": "agentSkills/execution-state/SKILL.md"
+    }
+  }
+}
