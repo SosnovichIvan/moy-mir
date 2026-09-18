@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+
+/* Temporary bootstrap styles. Canonical theme tokens are delivered in FE-10. */
+:root {
+  font-family: system-ui, sans-serif;
+  color: #203b30;
+  background: #f3f6f0;
+}
