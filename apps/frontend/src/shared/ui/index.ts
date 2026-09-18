@@ -5,3 +5,6 @@ export type {
   SelectionConfiguration,
   SelectionKind,
 } from './generated/selection';
+export { Button, IconButton } from './button';
+export type { ButtonConfiguration } from './generated/button';
+export type { IconButtonConfiguration } from './generated/iconButton';
