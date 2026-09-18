@@ -4,7 +4,7 @@
 
 ## Контекст и этап
 
-Перед работой прочитать [контекст frontend](../../techDocs/services/frontend/context.md), [ADR-002](../../techDocs/architecture/ADR-002-frontend-foundation.md) и [журнал этапов](../../techDocs/process/stages.md). Пользователь разрешил начать ранний frontend-блок. Здесь каркас блоков A–B; переходы A–E сохраняют согласование. Команды и структура — в README. Установка скилов не разрешает пропуск согласований.
+Перед работой прочитать [контекст frontend](../../techDocs/services/frontend/context.md), [ADR-002](../../techDocs/architecture/ADR-002-frontend-foundation.md) и [журнал этапов](../../techDocs/process/stages.md). Пользователь разрешил начать ранний frontend-блок. Блоки A–C приняты к продолжению; в D согласованы новые Light/Dark состояния Selection и реализован FE-15. Остальные задачи D открыты; переходы A–E сохраняют согласование. Команды и структура — в README. Установка скилов не разрешает пропуск согласований.
 
 ## Скилы по задаче
 

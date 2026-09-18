@@ -1,6 +1,6 @@
 # Frontend «Мой МИР»
 
-Технический каркас A–B: одна React SPA, без продуктовых функций и API. [ADR и границы](../../techDocs/architecture/ADR-002-frontend-foundation.md), [задачи](../../techDocs/services/frontend/bootstrap-tasks.md).
+Технический каркас A–C и Selection (FE-15): одна React SPA, без продуктовых функций и API. [ADR и границы](../../techDocs/architecture/ADR-002-frontend-foundation.md), [задачи](../../techDocs/services/frontend/bootstrap-tasks.md).
 
 ## Установка и проверки
 
@@ -55,7 +55,7 @@ VITE_API_BASE_URL=/api
 - `src/app/` — композиция маршрутов; alias `@app`.
 - `src/shared/config/` — валидатор публичной настройки API.
 - `modules/` — инструкции предметных модулей; реализации пока нет.
-- `src/shared/ui/` — общие темы, SVG и Icon; `catalog/` — Storybook.
+- `src/shared/ui/` — общие темы, SVG, Icon, Checkbox, Radio и Switch; `catalog/` — Storybook.
 
 Formatter: `npm run format`; проверка без изменений: `npm run format:check`. Стартовые экраны не являются финальным дизайном. PWA и продуктовые функции относятся к следующим задачам.
 
@@ -67,7 +67,7 @@ Formatter: `npm run format`; проверка без изменений: `npm ru
 
 Отчёты: `coverage/index.html`, `coverage/coverage-summary.json`, `coverage/lcov.info`, `playwright-report/index.html`; при падении E2E сохраняется trace. Все отчёты исключены из Git.
 
-[Workflow Frontend](../../.github/workflows/frontend.yml) выполняет установку по lockfile, `check`, production build и браузерные тесты на PR в `main`/`develop`, а также push этих веток. Артефакты `frontend-quality-reports` и `frontend-dist` хранятся 14 дней. Ошибка шага завершает проверку неуспешно. Каталог собирается и проверяется отдельными шагами; артефакт `frontend-catalog` хранится 14 дней. Обязательность статуса для merge задаётся отдельно правилами GitHub.
+[Workflow Frontend](../../.github/workflows/frontend.yml) выполняет установку по lockfile, `check`, production build и браузерные тесты на PR в `main`/`develop`/`codex/**` (включая зависимые PR), а также push `main`/`develop`. Артефакты `frontend-quality-reports` и `frontend-dist` хранятся 14 дней. Ошибка шага завершает проверку неуспешно. Каталог собирается и проверяется отдельными шагами; артефакт `frontend-catalog` хранится 14 дней. Обязательность статуса для merge задаётся отдельно правилами GitHub.
 
 ## Диагностика
 
@@ -85,5 +85,5 @@ Formatter: `npm run format`; проверка без изменений: `npm ru
 - `npm run test:catalog` — браузерные проверки собранного каталога.
 - `npm run generate:ui` / `npm run generate:check` — генерация UI-типов / проверка diff.
 
-Обзор основ содержит Light/Dark, viewport 320/390/768/1440, шрифты, палитру, размеры и иконки. Icon имеет controls имени и размера. Управляющие компоненты следуют в блоке D.
+Обзор основ содержит Light/Dark, viewport 320/390/768/1440, шрифты, палитру, размеры и иконки. Icon имеет controls имени и размера. Selection содержит работающие Checkbox, Radio и Switch: `/?path=/story/selection--overview`, отдельные `selection--light` и `selection--dark`. [API и проверки Selection](../../techDocs/services/frontend/selection.md). Остальные компоненты D ещё не реализованы.
 [Токены, Figma ID, контракты и правила синхронизации](../../techDocs/services/frontend/ui-foundations.md).

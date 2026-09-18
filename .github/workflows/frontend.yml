@@ -2,7 +2,7 @@ name: Frontend
 
 on:
   pull_request:
-    branches: [main, develop]
+    branches: [main, develop, 'codex/**']
   push:
     branches: [main, develop]
   workflow_dispatch:

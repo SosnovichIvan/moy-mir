@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SelectionConfiguration",
+  "description": "Serializable configuration of a controlled Selection. DOM bindings and callbacks belong to React props.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "label", "checked"],
+  "properties": {
+    "kind": {"$ref": "#/definitions/SelectionKind"},
+    "label": {"type": "string", "minLength": 1},
+    "checked": {"type": "boolean"},
+    "disabled": {"type": "boolean", "default": false}
+  },
+  "definitions": {
+    "SelectionKind": {"type": "string", "enum": ["checkbox", "radio", "switch"]}
+  }
+}
