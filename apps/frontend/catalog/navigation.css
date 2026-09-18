@@ -1,0 +1,15 @@
+.navigation-safe-demo {
+  display: grid;
+  gap: var(--mm-space-16);
+}
+.navigation-safe-shell {
+  /* A simulated device inset owned by the shell, not Navigation. */
+  --demo-safe-area: 34px;
+  padding-bottom: var(--demo-safe-area);
+  background: var(--mm-surface);
+}
+@media (min-width: 768px) {
+  .navigation-safe-demo {
+    display: none;
+  }
+}

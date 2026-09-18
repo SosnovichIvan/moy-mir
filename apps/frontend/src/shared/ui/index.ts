@@ -20,3 +20,7 @@ export { InfoBanner } from './infoBanner';
 export { Dialog } from './dialog';
 export type { InfoBannerConfiguration } from './generated/infoBanner';
 export type { DialogConfiguration } from './generated/dialog';
+
+export { Navigation, NavigationItem } from './navigation';
+export type { NavigationConfiguration } from './generated/navigation';
+export type { NavigationItemConfiguration } from './generated/navigationItem';
