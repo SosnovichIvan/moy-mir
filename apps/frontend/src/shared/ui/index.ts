@@ -10,3 +10,8 @@ export type { ButtonConfiguration } from './generated/button';
 export type { IconButtonConfiguration } from './generated/iconButton';
 export { TextField, TextareaField, SelectField } from './field';
 export type { FieldConfiguration, FieldOption } from './generated/field';
+export { Avatar } from './avatar';
+export { Badge, CountBadge } from './badge';
+export type { AvatarConfiguration } from './generated/avatar';
+export type { BadgeConfiguration } from './generated/badge';
+export type { CountBadgeConfiguration } from './generated/countBadge';

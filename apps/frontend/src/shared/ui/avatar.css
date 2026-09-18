@@ -1,0 +1,49 @@
+.mm-avatar {
+  --mm-avatar-size: 48px;
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: var(--mm-avatar-size);
+  height: var(--mm-avatar-size);
+  border-radius: var(--mm-radius-999);
+  background: var(--mm-soft);
+  color: var(--mm-accent);
+  font: 600 14px/20px var(--font-sans);
+}
+.mm-avatar[data-size='32'] {
+  --mm-avatar-size: 32px;
+}
+.mm-avatar[data-size='64'] {
+  --mm-avatar-size: 64px;
+  font: 700 20px/28px var(--font-heading);
+}
+.mm-avatar-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.mm-avatar-fallback .mm-icon {
+  width: calc(var(--mm-avatar-size) / 2);
+  height: calc(var(--mm-avatar-size) / 2);
+}
+.mm-avatar-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+  visibility: hidden;
+}
+.mm-avatar-image[data-loaded='true'] {
+  visibility: visible;
+}
+@media (forced-colors: active) {
+  .mm-avatar {
+    outline: 1px solid CanvasText;
+  }
+}

@@ -6,6 +6,8 @@
 
 ## Навигация
 
+- [Avatar/Badge FE-16: реализация и проверки для приёмки](services/frontend/avatar-badge.md).
+
 - [Правила тестирования: цель 100%](process/testing.md).
 
 - [Старт frontend: задачи для валидации](services/frontend/bootstrap-tasks.md).

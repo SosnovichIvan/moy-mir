@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BadgeConfiguration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "label"
+  ],
+  "properties": {
+    "label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tone": {
+      "type": "string",
+      "enum": [
+        "neutral",
+        "pending",
+        "success",
+        "error"
+      ],
+      "default": "neutral"
+    },
+    "leadingIcon": {
+      "$ref": "ui.schema.json#/definitions/IconName"
+    },
+    "trailingIcon": {
+      "$ref": "ui.schema.json#/definitions/IconName"
+    }
+  }
+}

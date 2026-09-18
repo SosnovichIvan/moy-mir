@@ -5,6 +5,8 @@
 @import './selection.css';
 @import './button.css';
 @import './field.css';
+@import './avatar.css';
+@import './badge.css';
 
 @layer base {
   body {
