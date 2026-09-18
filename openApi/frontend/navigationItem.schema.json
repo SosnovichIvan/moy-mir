@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NavigationItemConfiguration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "href", "icon"],
+  "properties": {
+    "label": { "type": "string", "minLength": 1 },
+    "href": { "type": "string", "minLength": 1 },
+    "icon": { "$ref": "ui.schema.json#/definitions/IconName" },
+    "current": { "type": "boolean", "default": false }
+  }
+}
