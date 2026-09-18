@@ -1,6 +1,6 @@
 # Основа UI-библиотеки · блок C
 
-Статус: реализовано для ревью. Управляющие компоненты блока D ещё не реализованы.
+Статус: блок C принят к продолжению. В D реализован Selection (FE-15); остальные управляющие компоненты ещё не реализованы.
 Источник — [Figma, основы 17:3](https://www.figma.com/design/qTLyRxJkaRvicTercpHUqr?node-id=17-3), тема 02 «Близко к природе», Light/Dark.
 
 ## Каталог и структура
@@ -55,14 +55,14 @@ SVG экспортированы из существующих компонен�
 
 ## Контракты для реализации блока D
 
-Ниже — проект публичного API для приёмки C, не список уже работающих компонентов. Сериализуемые варианты/модели добавляются в JSON Schema и генерируются перед реализацией; ручные дубликаты запрещены. ReactNode, DOM-атрибуты, refs и callbacks — технические props, не DTO. События передают значения, а не подменяют серверные команды.
+Ниже — проект публичного API блока C. Selection уже реализован: [фактический API](selection.md). Остальные строки остаются планом. Сериализуемые варианты/модели добавляются в JSON Schema и генерируются перед реализацией; ручные дубликаты запрещены. ReactNode, DOM-атрибуты, refs и callbacks — технические props, не DTO. События передают значения, а не подменяют серверные команды.
 
 | Компонент / Figma ID | Контракт и состояние |
 | --- | --- |
 | Button / 17:97 | size, variant, disabled, loading, startIcon/endIcon; children и DOM onClick; loading блокирует повторное действие |
 | IconButton / 23:957 | size, variant, icon, disabled/loading; обязательное aria-label |
 | Field / 17:174 | value/onValueChange, label, hint/error, type, disabled/readOnly, size; onClear; видимость пароля локальна и не меняет value |
-| Selection / 17:271 | checkbox/radio/switch; checked/onCheckedChange, label, disabled, size; группа radio управляется родителем |
+| Selection / 17:271 | checkbox/radio/switch; checked/onCheckedChange, label, disabled; строка от 48 px по согласованному макету, ширина по контейнеру; группа radio управляется родителем |
 | Avatar / 17:323 | src, displayName, size; fallback при отсутствии/ошибке изображения |
 | Badge / 17:351 | tone, size, label/count, startIcon/endIcon; одна цифра в круге, без интерактивности |
 | InfoBanner / 17:437 | tone, size, title/message; optional action/onDismiss; role по важности, не всем alert |

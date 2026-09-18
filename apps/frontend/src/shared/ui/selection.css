@@ -1,0 +1,146 @@
+.mm-selection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--mm-space-12);
+  min-height: var(--mm-control-m);
+  padding: var(--mm-space-8);
+  border-radius: var(--mm-radius-8);
+  color: var(--mm-ink);
+  cursor: pointer;
+}
+
+/* The native input covers the whole row, including its label and whitespace. */
+.mm-selection-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.mm-selection-label {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  font-weight: 600;
+}
+
+.mm-selection-indicator {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--mm-controlBorder);
+  border-radius: var(--mm-radius-8);
+  background: var(--mm-surface);
+  color: var(--mm-onAccent);
+}
+
+.mm-selection-label,
+.mm-selection-indicator {
+  pointer-events: none;
+}
+
+.mm-selection-indicator .mm-icon {
+  width: 18px;
+  height: 18px;
+  visibility: hidden;
+}
+
+.mm-selection[data-kind='radio'] .mm-selection-indicator,
+.mm-selection[data-kind='switch'] .mm-selection-indicator {
+  border-radius: var(--mm-radius-999);
+}
+
+.mm-selection[data-kind='radio'] .mm-selection-indicator::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: var(--mm-radius-999);
+  background: currentColor;
+  visibility: hidden;
+}
+
+.mm-selection[data-kind='switch'] .mm-selection-indicator {
+  width: 44px;
+}
+
+.mm-selection[data-kind='switch'] .mm-selection-indicator::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 1px;
+  inset-inline-start: 1px;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--mm-radius-999);
+  background: currentColor;
+}
+
+.mm-selection-input:checked + .mm-selection-indicator {
+  background: var(--mm-accent);
+}
+
+.mm-selection-input:checked + .mm-selection-indicator .mm-icon,
+.mm-selection-input:checked + .mm-selection-indicator::after {
+  visibility: visible;
+}
+
+.mm-selection[data-kind='switch']
+  .mm-selection-input:checked
+  + .mm-selection-indicator::after {
+  inset-inline-start: 21px;
+}
+
+@media (hover: hover) {
+  .mm-selection:has(.mm-selection-input:enabled):hover {
+    background: var(--mm-soft);
+  }
+}
+
+.mm-selection:has(.mm-selection-input:enabled):active {
+  background: var(--mm-line);
+}
+
+.mm-selection:has(.mm-selection-input:focus-visible) {
+  outline: 2px solid var(--mm-focus);
+  outline-offset: 4px;
+}
+
+.mm-selection:has(.mm-selection-input:disabled) {
+  color: var(--mm-muted);
+  cursor: not-allowed;
+}
+
+.mm-selection-input:disabled + .mm-selection-indicator {
+  background: var(--mm-line);
+}
+
+.mm-selection-input:disabled:checked + .mm-selection-indicator {
+  background: var(--mm-muted);
+}
+
+/* Let the OS draw the state in high-contrast mode; the label stays clickable. */
+@media (forced-colors: active) {
+  .mm-selection-input {
+    opacity: 1;
+    inset: auto;
+    inset-inline-start: var(--mm-space-8);
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    appearance: auto;
+    outline: none;
+  }
+
+  .mm-selection-indicator {
+    opacity: 0;
+  }
+}
