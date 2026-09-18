@@ -1,0 +1,74 @@
+.mm-dialog {
+  padding: 0;
+  margin: auto;
+  width: min(358px, calc(100% - 32px));
+  max-width: calc(100% - 32px);
+  max-height: calc(100dvh - 32px);
+  border: 1px solid var(--mm-line);
+  border-radius: var(--mm-radius-28);
+  background: var(--mm-surface);
+  color: var(--mm-ink);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.mm-dialog::backdrop {
+  background: rgb(0 0 0 / 48%);
+}
+html:has(.mm-dialog[open]) {
+  overflow: hidden;
+}
+.mm-dialog-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-16);
+  padding: var(--mm-space-24);
+  max-height: calc(100dvh - 34px);
+}
+.mm-dialog-title {
+  font: 700 1.5rem/2.125rem var(--font-heading);
+  overflow-wrap: anywhere;
+  flex-shrink: 0;
+}
+.mm-dialog-content {
+  overflow: auto;
+  overscroll-behavior: contain;
+  color: var(--mm-muted);
+  min-height: 24px;
+  overflow-wrap: anywhere;
+}
+.mm-dialog-content:focus-visible {
+  outline: 2px solid var(--mm-focus);
+  outline-offset: 2px;
+}
+.mm-dialog-error {
+  color: var(--mm-danger);
+}
+.mm-dialog-error:not(:empty) {
+  margin-top: var(--mm-space-16);
+}
+.mm-dialog-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mm-space-8);
+  flex-shrink: 0;
+}
+.mm-dialog-actions > .mm-button {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .mm-dialog {
+    width: 480px;
+  }
+  .mm-dialog-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .mm-dialog-actions > .mm-button {
+    flex: 1 1 160px;
+  }
+}
+@media (forced-colors: active) {
+  .mm-dialog {
+    border-color: CanvasText;
+  }
+}

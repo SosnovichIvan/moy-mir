@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "InfoBannerConfiguration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "body", "state"],
+  "properties": {
+    "title": { "type": "string", "minLength": 1 },
+    "body": { "type": "string" },
+    "state": { "enum": ["empty", "loading", "error", "offline", "permission", "success"] },
+    "size": { "enum": ["s", "m", "l"], "default": "s" },
+    "announcement": { "enum": ["off", "polite", "assertive"], "default": "off" }
+  }
+}
