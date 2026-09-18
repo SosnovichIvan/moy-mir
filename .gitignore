@@ -17,3 +17,6 @@ dist/
 playwright-report/
 test-results/
 storybook-static/
+
+apps/frontend/catalog-report/
+apps/frontend/catalog-results/

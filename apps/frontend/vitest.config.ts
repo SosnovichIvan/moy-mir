@@ -15,7 +15,12 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       include: ['src/**/*.{ts,tsx}'],
-      exclude: ['src/**/*.test.{ts,tsx}', 'src/test/**', 'src/**/*.d.ts'],
+      exclude: [
+        'src/**/*.test.{ts,tsx}',
+        'src/test/**',
+        'src/**/*.d.ts',
+        'src/shared/ui/generated/**',
+      ],
       reporter: ['text', 'html', 'json-summary', 'lcov'],
       thresholds: {
         perFile: true,

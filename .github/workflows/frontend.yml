@@ -39,10 +39,14 @@ jobs:
         run: npm run check
       - name: Production build
         run: npm run build
+      - name: Catalog build
+        run: npm run catalog:build
       - name: Install browser
         run: npx playwright install --with-deps chromium
       - name: Production browser smoke tests
         run: npm run test:e2e
+      - name: Catalog browser tests
+        run: npm run test:catalog
       - name: Upload coverage and browser reports
         if: always()
         uses: actions/upload-artifact@v7
@@ -52,11 +56,20 @@ jobs:
             apps/frontend/coverage/
             apps/frontend/playwright-report/
             apps/frontend/test-results/
+            apps/frontend/catalog-report/
+            apps/frontend/catalog-results/
           retention-days: 14
       - name: Upload production artifact
         uses: actions/upload-artifact@v7
         with:
           name: frontend-dist
           path: apps/frontend/dist/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload catalog artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: frontend-catalog
+          path: apps/frontend/storybook-static/
           if-no-files-found: error
           retention-days: 14

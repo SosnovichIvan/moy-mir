@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UiConfiguration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["theme", "size", "icon"],
+  "properties": {
+    "theme": {"$ref": "#/definitions/Theme"},
+    "size": {"$ref": "#/definitions/ControlSize"},
+    "icon": {"$ref": "#/definitions/IconName"}
+  },
+  "definitions": {
+    "Theme": {"type": "string", "enum": ["light", "dark"]},
+    "ControlSize": {"type": "string", "enum": ["s", "m", "l"]},
+    "IconName": {"type": "string", "enum": ["plus", "arrow", "close", "eye", "eyeOff", "check", "users", "user", "inbox"]}
+  }
+}

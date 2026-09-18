@@ -1,0 +1,109 @@
+/* Canonical code tokens. Synced from Figma 17:3, collection 4:22. */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --mm-bg: #f3f6f0;
+  --mm-ink: #203b30;
+  --mm-muted: #526454;
+  --mm-accent: #31634c;
+  --mm-soft: #dce8d5;
+  --mm-alt: #e9e5cc;
+  --mm-line: #d6e0d3;
+  --mm-surface: #fcfdf9;
+  --mm-onAccent: #fcfdf9;
+  --mm-onPressed: #fcfdf9;
+  --mm-hover: #28543f;
+  --mm-danger: #a52e35;
+  --mm-dangerSoft: #fbe8e7;
+  --mm-controlBorder: #6b806f;
+  --mm-focus: #31634c;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --mm-bg: #101b17;
+  --mm-ink: #e6efe8;
+  --mm-muted: #a8bcae;
+  --mm-accent: #91c8a3;
+  --mm-soft: #263c30;
+  --mm-alt: #34382a;
+  --mm-line: #364a3c;
+  --mm-surface: #19271f;
+  --mm-onAccent: #142b1b;
+  --mm-onPressed: #17261d;
+  --mm-hover: #aedbbc;
+  --mm-danger: #ffb3b8;
+  --mm-dangerSoft: #44252b;
+  --mm-controlBorder: #829a89;
+  --mm-focus: #91c8a3;
+}
+
+:root {
+  --mm-space-0: 0px;
+  --mm-space-4: 4px;
+  --mm-space-8: 8px;
+  --mm-space-12: 12px;
+  --mm-space-16: 16px;
+  --mm-space-20: 20px;
+  --mm-space-24: 24px;
+  --mm-space-28: 28px;
+  --mm-space-32: 32px;
+  --mm-space-40: 40px;
+  --mm-space-48: 48px;
+  --mm-space-64: 64px;
+  --mm-radius-8: 8px;
+  --mm-radius-12: 12px;
+  --mm-radius-16: 16px;
+  --mm-radius-20: 20px;
+  --mm-radius-28: 28px;
+  --mm-radius-999: 999px;
+  --mm-control-44: 44px;
+  --mm-control-48: 48px;
+  --mm-control-56: 56px;
+  --mm-icon-s: 20px;
+  --mm-icon-m: 24px;
+  --mm-icon-l: 28px;
+  --mm-navigation-icon: 22px;
+  --mm-control-s: var(--mm-control-44);
+  --mm-control-m: var(--mm-control-48);
+  --mm-control-l: var(--mm-control-56);
+}
+
+@theme inline {
+  --spacing: var(--mm-space-4);
+  --color-bg: var(--mm-bg);
+  --color-ink: var(--mm-ink);
+  --color-muted: var(--mm-muted);
+  --color-accent: var(--mm-accent);
+  --color-soft: var(--mm-soft);
+  --color-alt: var(--mm-alt);
+  --color-line: var(--mm-line);
+  --color-surface: var(--mm-surface);
+  --color-on-accent: var(--mm-onAccent);
+  --color-on-pressed: var(--mm-onPressed);
+  --color-hover: var(--mm-hover);
+  --color-danger: var(--mm-danger);
+  --color-danger-soft: var(--mm-dangerSoft);
+  --color-control-border: var(--mm-controlBorder);
+  --color-focus: var(--mm-focus);
+  --font-sans: 'Inter Variable', sans-serif;
+  --font-heading: 'Manrope Variable', sans-serif;
+  --radius-mm-8: var(--mm-radius-8);
+  --radius-mm-12: var(--mm-radius-12);
+  --radius-mm-16: var(--mm-radius-16);
+  --radius-mm-20: var(--mm-radius-20);
+  --radius-mm-28: var(--mm-radius-28);
+  --radius-mm-999: var(--mm-radius-999);
+  --text-display: 2rem;
+  --text-display--line-height: 2.625rem;
+  --text-heading: 1.5rem;
+  --text-heading--line-height: 2.125rem;
+  --text-title: 1.25rem;
+  --text-title--line-height: 1.75rem;
+  --text-body: 1rem;
+  --text-body--line-height: 1.5rem;
+  --text-label: 0.875rem;
+  --text-label--line-height: 1.25rem;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.125rem;
+}
