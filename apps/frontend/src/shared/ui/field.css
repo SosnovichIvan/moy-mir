@@ -1,0 +1,172 @@
+.mm-field {
+  --mm-field-height: var(--mm-control-m);
+  --mm-field-multiline-height: 112px;
+  display: grid;
+  align-self: start;
+  gap: var(--mm-space-8);
+  min-width: 0;
+  width: 100%;
+  color: var(--mm-ink);
+  overflow-wrap: anywhere;
+}
+.mm-field[data-size='s'] {
+  --mm-field-height: var(--mm-control-s);
+  --mm-field-multiline-height: 96px;
+}
+.mm-field[data-size='l'] {
+  --mm-field-height: var(--mm-control-l);
+  --mm-field-multiline-height: 144px;
+}
+.mm-field-label {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+.mm-field-description {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  color: var(--mm-muted);
+}
+.mm-field-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--mm-space-8);
+  min-width: 0;
+  min-height: var(--mm-field-height);
+  padding-inline: var(--mm-space-12);
+  border-radius: var(--mm-radius-12);
+  background: var(--mm-surface);
+  box-shadow: inset 0 0 0 1px var(--mm-controlBorder);
+}
+.mm-field-input {
+  display: block;
+  flex: 1 1 0%;
+  min-width: 0;
+  width: 100%;
+  min-height: max(var(--mm-field-height), 1.5rem);
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 0;
+  outline: none;
+}
+.mm-field-input::placeholder {
+  color: var(--mm-muted);
+  opacity: 1;
+}
+.mm-field-input::-webkit-search-cancel-button,
+.mm-field-input::-webkit-search-decoration,
+.mm-field-input::-ms-reveal {
+  display: none;
+}
+.mm-field-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 var(--mm-control-44);
+  width: var(--mm-control-44);
+  height: var(--mm-control-44);
+  padding: 0;
+  border: 0;
+  border-radius: var(--mm-radius-8);
+  background: transparent;
+  color: var(--mm-muted);
+  cursor: pointer;
+}
+.mm-field-action:focus-visible {
+  outline: 2px solid var(--mm-focus);
+  outline-offset: -2px;
+}
+@media (hover: hover) {
+  .mm-field:not([data-disabled='true']):not([data-readonly='true']):not(
+      [data-error='true']
+    )
+    .mm-field-control:hover:not(:focus-within) {
+    box-shadow: inset 0 0 0 1px var(--mm-accent);
+  }
+  .mm-field-action:hover {
+    color: var(--mm-accent);
+  }
+}
+.mm-field .mm-field-control:focus-within {
+  box-shadow: inset 0 0 0 2px var(--mm-focus);
+}
+.mm-field[data-error='true'] .mm-field-control {
+  box-shadow: inset 0 0 0 1px var(--mm-danger);
+}
+.mm-field[data-error='true'] .mm-field-control:focus-within {
+  box-shadow: inset 0 0 0 2px var(--mm-danger);
+  outline: 2px solid var(--mm-focus);
+  outline-offset: 2px;
+}
+.mm-field[data-error='true'] .mm-field-description {
+  color: var(--mm-danger);
+}
+.mm-field[data-readonly='true'] .mm-field-control {
+  background: var(--mm-bg);
+}
+.mm-field[data-disabled='true'] .mm-field-control {
+  background: var(--mm-soft);
+  color: var(--mm-muted);
+}
+.mm-field-input:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+  -webkit-text-fill-color: var(--mm-muted);
+}
+.mm-field-multiline {
+  align-items: stretch;
+}
+.mm-field-multiline .mm-field-input {
+  min-height: var(--mm-field-multiline-height);
+  padding-block: var(--mm-space-12);
+  resize: vertical;
+}
+.mm-field-select .mm-field-input {
+  appearance: none;
+  padding-right: var(--mm-space-28);
+  cursor: pointer;
+}
+.mm-field-select .mm-field-input:disabled {
+  cursor: not-allowed;
+}
+.mm-field-select[data-empty='true'] {
+  color: var(--mm-muted);
+}
+.mm-field-select option {
+  color: var(--mm-ink);
+  background: var(--mm-surface);
+}
+.mm-field-expand {
+  position: absolute;
+  right: var(--mm-space-12);
+  transform: rotate(90deg);
+  pointer-events: none;
+  color: var(--mm-accent);
+}
+.mm-field-static {
+  padding-block: var(--mm-space-8);
+}
+@media (forced-colors: active) {
+  .mm-field-control {
+    outline: 1px solid ButtonText;
+    outline-offset: -1px;
+  }
+  .mm-field .mm-field-control:focus-within {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+  .mm-field-action:focus-visible {
+    outline-color: Highlight;
+  }
+  .mm-field[data-disabled='true'] .mm-field-control {
+    color: GrayText;
+    outline-color: GrayText;
+  }
+}

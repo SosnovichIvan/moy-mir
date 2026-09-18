@@ -8,3 +8,5 @@ export type {
 export { Button, IconButton } from './button';
 export type { ButtonConfiguration } from './generated/button';
 export type { IconButtonConfiguration } from './generated/iconButton';
+export { TextField, TextareaField, SelectField } from './field';
+export type { FieldConfiguration, FieldOption } from './generated/field';
