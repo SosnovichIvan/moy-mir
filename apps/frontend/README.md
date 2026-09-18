@@ -63,7 +63,9 @@ Formatter: `npm run format`; проверка без изменений: `npm ru
 
 `npm test` — разовый прогон; `npm run test:watch` — разработка; `npm run test:coverage` — покрытие. `npm run check` включает lint, typecheck, форматирование и coverage. Vitest/Testing Library используют jsdom и настоящий React renderer.
 
-Для собственного runtime-кода закреплён блокирующий порог **100% lines/statements/functions/branches на каждый файл**. [Правила и исключения](../../techDocs/process/testing.md). Текущая библиотека: 66 unit-тестов, семь runtime-файлов с покрытием 100%; barrel index.ts содержит только экспорты. Каталог проверяют 49 браузерных тестов. Playwright запускает два smoke-теста production-сборки в Chromium: desktop и эмуляция Pixel 7. Это не проверка всей целевой браузерной матрицы или будущих функций.
+Для собственного runtime-кода закреплён блокирующий порог **100% lines/statements/functions/branches на каждый файл**. [Правила и исключения](../../techDocs/process/testing.md). Текущая библиотека: 94 unit-теста, девять runtime-файлов с покрытием 100%; barrel index.ts содержит только экспорты. Каталог проверяют 62 браузерных теста. Playwright запускает два smoke-теста production-сборки в Chromium: desktop и эмуляция Pixel 7. Это не проверка всей целевой браузерной матрицы или будущих функций.
+
+FE-16: экспорты `Avatar`, `Badge`, `CountBadge`; [API и проверки](../../techDocs/services/frontend/avatar-badge.md). Каталог: `?path=/story/avatar--overview` и `?path=/story/badge--overview`, отдельные Light/Dark stories.
 
 Отчёты: `coverage/index.html`, `coverage/coverage-summary.json`, `coverage/lcov.info`, `playwright-report/index.html`; при падении E2E сохраняется trace. Все отчёты исключены из Git.
 

@@ -1,0 +1,59 @@
+.mm-badge,
+.mm-count-badge {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  align-self: start;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  border-radius: var(--mm-radius-999);
+  font: 400 0.75rem/1.125rem var(--font-sans);
+}
+.mm-badge {
+  min-width: 0;
+  min-height: 34px;
+  padding: var(--mm-space-8);
+  gap: var(--mm-space-4);
+  background: var(--mm-soft);
+  color: var(--mm-ink);
+}
+.mm-badge-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.mm-badge[data-tone='pending'] {
+  background: var(--mm-alt);
+}
+.mm-badge[data-tone='success'] {
+  color: var(--mm-accent);
+}
+.mm-badge[data-tone='error'] {
+  background: var(--mm-dangerSoft);
+  color: var(--mm-danger);
+}
+.mm-count-badge {
+  flex: none;
+  min-width: 24px;
+  height: max(24px, 1.5rem);
+  background: var(--mm-accent);
+  color: var(--mm-onAccent);
+}
+.mm-count-badge[data-wide='false'] {
+  width: max(24px, 1.5rem);
+}
+.mm-count-badge[data-wide='true'] {
+  padding-inline: var(--mm-space-8);
+}
+@media (forced-colors: active) {
+  .mm-badge,
+  .mm-count-badge {
+    outline: 1px solid CanvasText;
+  }
+}
+
+.mm-badge > .mm-icon[data-size='s'] {
+  width: 16px;
+  height: 16px;
+}

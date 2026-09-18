@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AvatarConfiguration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "src": {
+      "type": "string"
+    },
+    "size": {
+      "type": "integer",
+      "enum": [
+        32,
+        48,
+        64
+      ],
+      "default": 48
+    },
+    "decorative": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
