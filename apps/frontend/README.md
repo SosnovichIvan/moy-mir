@@ -1,6 +1,6 @@
 # Frontend «Мой МИР»
 
-Технический каркас A–C и компоненты Selection (FE-15), Button/IconButton (FE-13): одна React SPA, без продуктовых функций и API. [ADR и границы](../../techDocs/architecture/ADR-002-frontend-foundation.md), [задачи](../../techDocs/services/frontend/bootstrap-tasks.md).
+Технический каркас A–C и компоненты Selection (FE-15), Button/IconButton (FE-13), Field (FE-14): одна React SPA, без продуктовых функций и API. [ADR и границы](../../techDocs/architecture/ADR-002-frontend-foundation.md), [задачи](../../techDocs/services/frontend/bootstrap-tasks.md).
 
 ## Установка и проверки
 
@@ -55,7 +55,7 @@ VITE_API_BASE_URL=/api
 - `src/app/` — композиция маршрутов; alias `@app`.
 - `src/shared/config/` — валидатор публичной настройки API.
 - `modules/` — инструкции предметных модулей; реализации пока нет.
-- `src/shared/ui/` — общие темы, SVG, Icon, Button, IconButton, Checkbox, Radio и Switch; `catalog/` — Storybook.
+- `src/shared/ui/` — общие темы, SVG, Icon, Button, IconButton, Checkbox, Radio, Switch, TextField, TextareaField и SelectField; `catalog/` — Storybook.
 
 Formatter: `npm run format`; проверка без изменений: `npm run format:check`. Стартовые экраны не являются финальным дизайном. PWA и продуктовые функции относятся к следующим задачам.
 
@@ -63,7 +63,7 @@ Formatter: `npm run format`; проверка без изменений: `npm ru
 
 `npm test` — разовый прогон; `npm run test:watch` — разработка; `npm run test:coverage` — покрытие. `npm run check` включает lint, typecheck, форматирование и coverage. Vitest/Testing Library используют jsdom и настоящий React renderer.
 
-Для собственного runtime-кода закреплён блокирующий порог **100% lines/statements/functions/branches на каждый файл**. [Правила и исключения](../../techDocs/process/testing.md). Текущая библиотека: 52 unit-теста, шесть runtime-файлов с покрытием 100%; barrel index.ts содержит только экспорты. Каталог проверяют 35 браузерных тестов. Playwright запускает два smoke-теста production-сборки в Chromium: desktop и эмуляция Pixel 7. Это не проверка всей целевой браузерной матрицы или будущих функций.
+Для собственного runtime-кода закреплён блокирующий порог **100% lines/statements/functions/branches на каждый файл**. [Правила и исключения](../../techDocs/process/testing.md). Текущая библиотека: 66 unit-тестов, семь runtime-файлов с покрытием 100%; barrel index.ts содержит только экспорты. Каталог проверяют 49 браузерных тестов. Playwright запускает два smoke-теста production-сборки в Chromium: desktop и эмуляция Pixel 7. Это не проверка всей целевой браузерной матрицы или будущих функций.
 
 Отчёты: `coverage/index.html`, `coverage/coverage-summary.json`, `coverage/lcov.info`, `playwright-report/index.html`; при падении E2E сохраняется trace. Все отчёты исключены из Git.
 
@@ -85,5 +85,5 @@ Formatter: `npm run format`; проверка без изменений: `npm ru
 - `npm run test:catalog` — браузерные проверки собранного каталога.
 - `npm run generate:ui` / `npm run generate:check` — генерация UI-типов / проверка diff.
 
-Обзор основ содержит Light/Dark, viewport 320/390/768/1440, шрифты, палитру, размеры и иконки. Icon имеет controls имени и размера. Selection содержит работающие Checkbox, Radio и Switch: `/?path=/story/selection--overview`, отдельные `selection--light` и `selection--dark`. [API и проверки Selection](../../techDocs/services/frontend/selection.md). Button/IconButton: `/?path=/story/button--overview`, `button--light`, `button--dark`. [API и проверки кнопок](../../techDocs/services/frontend/button.md). Остальные компоненты D ещё не реализованы.
+Обзор основ содержит Light/Dark, viewport 320/390/768/1440, шрифты, палитру, размеры и иконки. Icon имеет controls имени и размера. Selection содержит работающие Checkbox, Radio и Switch: `/?path=/story/selection--overview`, отдельные `selection--light` и `selection--dark`. [API и проверки Selection](../../techDocs/services/frontend/selection.md). Button/IconButton: `/?path=/story/button--overview`, `button--light`, `button--dark`. [API и проверки кнопок](../../techDocs/services/frontend/button.md). Field: `/?path=/story/field--overview`, `field--light`, `field--dark`. [API и проверки полей](../../techDocs/services/frontend/field.md). Остальные компоненты D ещё не реализованы.
 [Токены, Figma ID, контракты и правила синхронизации](../../techDocs/services/frontend/ui-foundations.md).
