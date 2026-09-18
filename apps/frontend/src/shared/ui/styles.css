@@ -10,6 +10,7 @@
 @import './infoBanner.css';
 @import './dialog.css';
 @import './navigation.css';
+@import './entityCard.css';
 
 @layer base {
   body {

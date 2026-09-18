@@ -1,5 +1,7 @@
 # Контракты frontend
 
+FE-19 добавляет `entityCard.schema.json`: сериализуемая UI-конфигурация шести состояний, допустимое действие загрузки и обязательный адрес для Friend/Member. Это не серверная модель дружбы или группы. Генерируется `src/shared/ui/generated/entityCard.ts`; callbacks и нативные свойства ссылки остаются техническими props. Вместе с двумя схемами Navigation генерация теперь включает 13 схем.
+
 FE-17 добавляет `infoBanner.schema.json` и `dialog.schema.json`: конфигурации генерируются в одноимённые файлы `src/shared/ui/generated/`. Всего `generate:check` проверяет десять схем. React callbacks, слоты и DOM refs остаются техническими props.
 
 `ui.schema.json` — JSON Schema сериализуемой конфигурации UI: Theme, ControlSize, IconName и UiConfiguration. Это не HTTP API.
