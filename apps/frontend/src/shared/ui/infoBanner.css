@@ -1,0 +1,39 @@
+.mm-info-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--mm-space-12);
+  width: 100%;
+  max-width: 358px;
+  padding: var(--mm-space-16);
+  border: 1px solid var(--mm-line);
+  border-radius: var(--mm-radius-20);
+  background: var(--mm-surface);
+  overflow-wrap: anywhere;
+}
+.mm-info-banner[data-size='m'] {
+  max-width: 600px;
+  padding: var(--mm-space-20);
+}
+.mm-info-banner[data-size='l'] {
+  max-width: 920px;
+  padding: var(--mm-space-24);
+}
+.mm-info-banner-title {
+  color: var(--mm-ink);
+  font: 700 1.25rem/1.75rem var(--font-heading);
+}
+.mm-info-banner-body {
+  color: var(--mm-muted);
+}
+.mm-info-banner[data-state='error'] {
+  background: var(--mm-dangerSoft);
+}
+.mm-info-banner[data-state='error'] .mm-info-banner-title {
+  color: var(--mm-danger);
+}
+@media (forced-colors: active) {
+  .mm-info-banner {
+    border-color: CanvasText;
+  }
+}

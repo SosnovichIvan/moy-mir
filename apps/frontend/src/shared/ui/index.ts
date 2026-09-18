@@ -15,3 +15,8 @@ export { Badge, CountBadge } from './badge';
 export type { AvatarConfiguration } from './generated/avatar';
 export type { BadgeConfiguration } from './generated/badge';
 export type { CountBadgeConfiguration } from './generated/countBadge';
+
+export { InfoBanner } from './infoBanner';
+export { Dialog } from './dialog';
+export type { InfoBannerConfiguration } from './generated/infoBanner';
+export type { DialogConfiguration } from './generated/dialog';

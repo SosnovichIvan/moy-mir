@@ -63,7 +63,7 @@ Formatter: `npm run format`; проверка без изменений: `npm ru
 
 `npm test` — разовый прогон; `npm run test:watch` — разработка; `npm run test:coverage` — покрытие. `npm run check` включает lint, typecheck, форматирование и coverage. Vitest/Testing Library используют jsdom и настоящий React renderer.
 
-Для собственного runtime-кода закреплён блокирующий порог **100% lines/statements/functions/branches на каждый файл**. [Правила и исключения](../../techDocs/process/testing.md). Текущая библиотека: 94 unit-теста, девять runtime-файлов с покрытием 100%; barrel index.ts содержит только экспорты. Каталог проверяют 62 браузерных теста. Playwright запускает два smoke-теста production-сборки в Chromium: desktop и эмуляция Pixel 7. Это не проверка всей целевой браузерной матрицы или будущих функций.
+Для собственного runtime-кода закреплён блокирующий порог **100% lines/statements/functions/branches на каждый файл**. [Правила и исключения](../../techDocs/process/testing.md). Текущая библиотека: 101 unit-теста, одиннадцать runtime-файлов с покрытием 100%; barrel index.ts содержит только экспорты. Каталог проверяют 74 браузерных теста. Playwright запускает два smoke-теста production-сборки в Chromium: desktop и эмуляция Pixel 7. Это не проверка всей целевой браузерной матрицы или будущих функций.
 
 FE-16: экспорты `Avatar`, `Badge`, `CountBadge`; [API и проверки](../../techDocs/services/frontend/avatar-badge.md). Каталог: `?path=/story/avatar--overview` и `?path=/story/badge--overview`, отдельные Light/Dark stories.
 
@@ -89,3 +89,5 @@ FE-16: экспорты `Avatar`, `Badge`, `CountBadge`; [API и проверк�
 
 Обзор основ содержит Light/Dark, viewport 320/390/768/1440, шрифты, палитру, размеры и иконки. Icon имеет controls имени и размера. Selection содержит работающие Checkbox, Radio и Switch: `/?path=/story/selection--overview`, отдельные `selection--light` и `selection--dark`. [API и проверки Selection](../../techDocs/services/frontend/selection.md). Button/IconButton: `/?path=/story/button--overview`, `button--light`, `button--dark`. [API и проверки кнопок](../../techDocs/services/frontend/button.md). Field: `/?path=/story/field--overview`, `field--light`, `field--dark`. [API и проверки полей](../../techDocs/services/frontend/field.md). Остальные компоненты D ещё не реализованы.
 [Токены, Figma ID, контракты и правила синхронизации](../../techDocs/services/frontend/ui-foundations.md).
+
+FE-17: `InfoBanner` и `Dialog`; [API и проверки](../../techDocs/services/frontend/info-banner-dialog.md). Stories: `info-banner--overview`, `dialog--overview`, Light/Dark.

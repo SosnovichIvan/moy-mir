@@ -1,5 +1,7 @@
 # Контракты frontend
 
+FE-17 добавляет `infoBanner.schema.json` и `dialog.schema.json`: конфигурации генерируются в одноимённые файлы `src/shared/ui/generated/`. Всего `generate:check` проверяет десять схем. React callbacks, слоты и DOM refs остаются техническими props.
+
 `ui.schema.json` — JSON Schema сериализуемой конфигурации UI: Theme, ControlSize, IconName и UiConfiguration. Это не HTTP API.
 
 Генерация из `apps/frontend`: `npm run generate:ui`. Результат — `src/shared/ui/generated/contracts.ts`; ручные изменения запрещены. CI запускает `generate:check` и проверяет отсутствие diff. Runtime-компоненты импортируют типы из generated.
