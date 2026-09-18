@@ -1,6 +1,6 @@
 # Selection · FE-15
 
-Статус: реализовано для ревью. Новые Light/Dark состояния согласованы 2026-09-18 сообщением «темы согласлованы». Это часть блока D, без продуктовых сценариев и API.
+Статус: принято после слияния PR #5 и сообщения «блок согласован». Новые Light/Dark состояния согласованы 2026-09-18 сообщением «темы согласлованы». Это часть блока D, без продуктовых сценариев и API.
 
 Источник: [Selection 17:271](https://www.figma.com/design/qTLyRxJkaRvicTercpHUqr?node-id=17-271), [Light 31:31](https://www.figma.com/design/qTLyRxJkaRvicTercpHUqr?node-id=31-31), [Dark 31:222](https://www.figma.com/design/qTLyRxJkaRvicTercpHUqr?node-id=31-222).
 
@@ -23,7 +23,7 @@ const [checked, setChecked] = useState(false);
 - Radio: общий `name`, разные `value`, один источник выбранного значения. Группу помещать в `fieldset` с `legend`. Повторное нажатие выбранного radio не снимает выбор и не вызывает callback.
 - Нативные DOM-атрибуты (`id`, `name`, `value`, `required`, `aria-describedby`), события фокуса и `ref` передаются input. `className` применяется к строке label. `type`, `role`, `aria-checked`, `defaultChecked` и `onChange` управляются компонентом.
 - Видимая подпись — обычный текст. Ссылки и другие вложенные действия не помещаются в label.
-- Сериализуемый контракт: `openApi/frontend/selection.schema.json` → `src/shared/ui/generated/selection.ts`. `npm run generate:ui` генерирует обе UI-схемы; `generate:check` проверяет отсутствие diff. Callback, ref и DOM bindings — технические React props, ручных DTO нет.
+- Сериализуемый контракт: `openApi/frontend/selection.schema.json` → `src/shared/ui/generated/selection.ts`. `npm run generate:ui` генерирует UI-схемы; `generate:check` проверяет отсутствие diff. Callback, ref и DOM bindings — технические React props, ручных DTO нет.
 
 ## Отображение и взаимодействие
 
@@ -47,4 +47,4 @@ Off/On независимы от hover/pressed/focus/disabled. Hover испол�
 
 Ревью `frontend-review` и `ui-ux-design`: проверены controlled state, нативная семантика, публичный экспорт, использование generated-модели и токенов, доступное имя и видимый фокус. Подтверждённых дефектов в текущем объёме не осталось. Firefox/WebKit, физические телефоны и скринридеры ещё не проверены.
 
-CI запускается также для PR в `codex/**`, чтобы зависимые PR проходили те же проверки до слияния основы. Правила защищённых веток и требования ревью не изменены. Следующий шаг — ревью FE-15 и оставшиеся задачи D; FE-13/14/16–20 и блок E не завершены.
+CI запускается также для PR в `codex/**`, чтобы зависимые PR проходили те же проверки до слияния основы. Правила защищённых веток и требования ревью не изменены. FE-13 реализован для ревью; далее FE-14/16–20 и блок E.

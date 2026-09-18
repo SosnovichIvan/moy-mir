@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IconButtonConfiguration",
+  "description": "Primary icon-only action. Label is the required accessible action name, also retained while busy.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "icon"],
+  "properties": {
+    "label": {"type": "string", "minLength": 1},
+    "icon": {"$ref": "ui.schema.json#/definitions/IconName"},
+    "size": {"$ref": "ui.schema.json#/definitions/ControlSize", "default": "m"},
+    "disabled": {"type": "boolean", "default": false},
+    "loading": {"type": "boolean", "default": false}
+  }
+}

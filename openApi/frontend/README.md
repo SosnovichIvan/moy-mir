@@ -7,3 +7,5 @@
 ReactNode, DOM-атрибуты, refs и callbacks — технические props; их не помещают в сериализуемые схемы. Предметные view models будут добавлены до реализации карточек, API DTO — из контрактов соответствующих сервисов.
 
 [Контекст](../../techDocs/services/frontend/context.md) · [Правила моделей](../README.md) · [UI-контракты](../../techDocs/services/frontend/ui-foundations.md)
+
+`selection.schema.json`, `button.schema.json`, `iconButton.schema.json` описывают конфигурацию соответствующих компонентов; генерируются в одноимённые файлы `src/shared/ui/generated/`. Общие размеры и имена иконок в схемах кнопок используют `$ref` на `ui.schema.json`. Все четыре схемы проверяет `generate:check`.

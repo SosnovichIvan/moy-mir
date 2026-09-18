@@ -25,7 +25,7 @@
     "catalog": "storybook dev -p 6006 --host 127.0.0.1 --no-open --disable-telemetry",
     "catalog:build": "storybook build --disable-telemetry",
     "catalog:preview": "vite preview --outDir storybook-static --port 6006 --host 127.0.0.1",
-    "generate:ui": "json2ts -i ../../openApi/frontend/ui.schema.json -o src/shared/ui/generated/contracts.ts && json2ts -i ../../openApi/frontend/selection.schema.json -o src/shared/ui/generated/selection.ts && prettier --write src/shared/ui/generated",
+    "generate:ui": "json2ts -i ../../openApi/frontend/ui.schema.json -o src/shared/ui/generated/contracts.ts && json2ts -i ../../openApi/frontend/selection.schema.json -o src/shared/ui/generated/selection.ts && json2ts -i ../../openApi/frontend/button.schema.json -o src/shared/ui/generated/button.ts && json2ts -i ../../openApi/frontend/iconButton.schema.json -o src/shared/ui/generated/iconButton.ts && prettier --write src/shared/ui/generated",
     "generate:check": "npm run generate:ui && git diff --exit-code -- src/shared/ui/generated",
     "test:catalog": "playwright test --config playwright.catalog.config.ts"
   },
