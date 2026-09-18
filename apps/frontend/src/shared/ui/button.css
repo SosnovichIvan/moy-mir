@@ -1,11 +1,16 @@
 .mm-button {
   --button-height: var(--mm-control-m);
   --button-padding: var(--mm-space-12);
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-areas: 'content';
+  width: fit-content;
+  justify-self: start;
+  align-self: start;
+  flex: none;
   align-items: center;
   justify-content: center;
   gap: var(--mm-space-8);
-  min-width: var(--button-height);
+  min-width: 96px;
   min-height: var(--button-height);
   max-width: 100%;
   padding: var(--button-padding);
@@ -31,8 +36,38 @@
   --button-padding: var(--mm-space-16);
 }
 
+.mm-button-content {
+  grid-area: content;
+  display: grid;
+  align-items: center;
+  min-width: 0;
+}
+
+.mm-button-content[data-icons='true'] {
+  grid-template-columns: 20px minmax(0, 1fr) 20px;
+  gap: var(--mm-space-8);
+}
+
+.mm-button-content[data-icons='true'] .mm-button-label {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.mm-button-leading {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.mm-button-trailing {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.mm-button-content[aria-hidden='true'] {
+  visibility: hidden;
+}
+
 .mm-button-label {
-  flex: 1;
   min-width: 0;
   overflow-wrap: anywhere;
 }
@@ -100,6 +135,7 @@
 
 .mm-icon-button {
   flex: none;
+  min-width: var(--button-height);
   width: var(--button-height);
   height: var(--button-height);
   padding: 0;
@@ -112,6 +148,9 @@
 }
 
 .mm-button-loading {
+  grid-area: content;
+  place-self: center;
+  animation: mm-button-spin 900ms linear infinite;
   width: 20px;
   height: 20px;
   background: currentColor;
@@ -131,6 +170,21 @@
   }
   .mm-button .mm-icon,
   .mm-button-loading {
+    grid-area: content;
+    place-self: center;
+    animation: mm-button-spin 900ms linear infinite;
     forced-color-adjust: none;
+  }
+}
+
+@keyframes mm-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-button-loading {
+    animation: none;
   }
 }

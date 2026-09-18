@@ -49,10 +49,25 @@ export function Button({
   ...props
 }: ButtonProps) {
   return (
-    <ButtonFrame {...props} loading={loading}>
-      {leadingIcon && <Icon name={leadingIcon} size="s" />}
-      <span className="mm-button-label">{loading ? loadingLabel : label}</span>
-      {trailingIcon && <Icon name={trailingIcon} size="s" />}
+    <ButtonFrame
+      {...props}
+      loading={loading}
+      aria-label={loading ? loadingLabel : props['aria-label']}
+    >
+      <span
+        className="mm-button-content"
+        data-icons={Boolean(leadingIcon || trailingIcon)}
+        aria-hidden={loading}
+      >
+        {leadingIcon && (
+          <Icon name={leadingIcon} size="s" className="mm-button-leading" />
+        )}
+        <span className="mm-button-label">{label}</span>
+        {trailingIcon && (
+          <Icon name={trailingIcon} size="s" className="mm-button-trailing" />
+        )}
+      </span>
+      {loading && <span className="mm-button-loading" aria-hidden="true" />}
     </ButtonFrame>
   );
 }

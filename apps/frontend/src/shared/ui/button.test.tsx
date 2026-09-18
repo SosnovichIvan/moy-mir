@@ -93,12 +93,38 @@ it('renders both decorative icons around text and a custom loading message', () 
     />,
   );
   const button = screen.getByRole('button', { name: 'Отправить' });
-  expect(button.children).toHaveLength(3);
-  expect(button.firstElementChild).toHaveAttribute('aria-hidden', 'true');
-  expect(button.lastElementChild).toHaveAttribute('aria-hidden', 'true');
+  const content = button.querySelector('.mm-button-content')!;
+  expect(content.children).toHaveLength(3);
+  expect(content.firstElementChild).toHaveAttribute('aria-hidden', 'true');
+  expect(content.lastElementChild).toHaveAttribute('aria-hidden', 'true');
   expect(button).toHaveAttribute('data-size', 'l');
   expect(button).toHaveAttribute('data-variant', 'secondary');
   rerender(<Button label="Отправить" loading loadingLabel="Отправляем…" />);
   expect(button).toHaveAccessibleName('Отправляем…');
   expect(button).toBeDisabled();
+});
+
+it('keeps its original label in a hidden sizing layer while showing the spinner', () => {
+  render(<Button label="Пригласить друзей" leadingIcon="plus" loading />);
+  const button = screen.getByRole('button', { name: 'Подождите…' });
+  expect(button.querySelector('.mm-button-content')).toHaveAttribute(
+    'aria-hidden',
+    'true',
+  );
+  expect(button.querySelector('.mm-button-loading')).toHaveAttribute(
+    'aria-hidden',
+    'true',
+  );
+});
+
+it('supports a trailing-only icon and a custom accessible name', () => {
+  render(
+    <Button label="Далее" trailingIcon="arrow" aria-label="Перейти далее" />,
+  );
+  const button = screen.getByRole('button', { name: 'Перейти далее' });
+  expect(button.querySelector('.mm-button-content')).toHaveAttribute(
+    'data-icons',
+    'true',
+  );
+  expect(button.querySelectorAll('.mm-icon')).toHaveLength(1);
 });

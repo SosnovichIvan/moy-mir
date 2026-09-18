@@ -252,3 +252,58 @@ test.describe('touch', () => {
     ).toHaveText('2');
   });
 });
+
+test('buttons use content width, balance a single icon and retain size while busy', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/iframe.html?id=button--light&viewMode=story');
+  const region = page.getByRole('region', { name: 'primary', exact: true });
+  for (const name of ['Продолжить M', 'Слева', 'Справа', 'С обеих сторон']) {
+    const button = region.getByRole('button', { name, exact: true });
+    const bounds = (await button.boundingBox())!;
+    const container = (await region.boundingBox())!;
+    expect(bounds.width).toBeGreaterThanOrEqual(96);
+    expect(bounds.width).toBeLessThan(container.width - 40);
+    const label = (await button.locator('.mm-button-label').boundingBox())!;
+    expect(
+      Math.abs(label.x + label.width / 2 - bounds.x - bounds.width / 2),
+    ).toBeLessThan(1);
+  }
+  const action = page.getByRole('region', { name: 'Действие' });
+  const button = action.getByRole('button', { name: 'Начать действие' });
+  const before = (await button.boundingBox())!;
+  await button.click();
+  const busy = action.getByRole('button', { name: 'Подождите…' });
+  const after = (await busy.boundingBox())!;
+  expect(after.width).toBe(before.width);
+  expect(after.height).toBe(before.height);
+  await expect(busy.locator('.mm-button-content')).toBeHidden();
+  for (const target of [
+    busy,
+    page.getByRole('button', { name: 'Загрузка', exact: true }),
+  ]) {
+    const spinner = target.locator('.mm-button-loading');
+    await expect(spinner).toBeVisible();
+    await expect(spinner).toHaveCSS('animation-name', 'mm-button-spin');
+    const bounds = (await target.boundingBox())!;
+    const glyph = (await spinner.boundingBox())!;
+    expect(
+      Math.abs(glyph.x + glyph.width / 2 - bounds.x - bounds.width / 2),
+    ).toBeLessThan(1);
+    expect(
+      Math.abs(glyph.y + glyph.height / 2 - bounds.y - bounds.height / 2),
+    ).toBeLessThan(1);
+    const transform = await spinner.evaluate(
+      (e) => getComputedStyle(e).transform,
+    );
+    await expect
+      .poll(() => spinner.evaluate((e) => getComputedStyle(e).transform))
+      .not.toBe(transform);
+  }
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(busy.locator('.mm-button-loading')).toHaveCSS(
+    'animation-name',
+    'none',
+  );
+});
