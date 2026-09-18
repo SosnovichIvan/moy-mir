@@ -5,3 +5,5 @@ package-lock.json
 storybook-static
 playwright-report
 test-results
+catalog-report
+catalog-results

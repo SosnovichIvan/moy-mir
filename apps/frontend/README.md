@@ -55,7 +55,7 @@ VITE_API_BASE_URL=/api
 - `src/app/` — композиция маршрутов; alias `@app`.
 - `src/shared/config/` — валидатор публичной настройки API.
 - `modules/` — инструкции предметных модулей; реализации пока нет.
-- `src/shared/ui/`, темы и Storybook появятся в блоке C; команд каталога пока нет.
+- `src/shared/ui/` — общие темы, SVG и Icon; `catalog/` — Storybook.
 
 Formatter: `npm run format`; проверка без изменений: `npm run format:check`. Стартовые экраны не являются финальным дизайном. PWA и продуктовые функции относятся к следующим задачам.
 
@@ -63,17 +63,27 @@ Formatter: `npm run format`; проверка без изменений: `npm ru
 
 `npm test` — разовый прогон; `npm run test:watch` — разработка; `npm run test:coverage` — покрытие. `npm run check` включает lint, typecheck, форматирование и coverage. Vitest/Testing Library используют jsdom и настоящий React renderer.
 
-Для собственного runtime-кода закреплён блокирующий порог **100% lines/statements/functions/branches на каждый файл**. [Правила и исключения](../../techDocs/process/testing.md). Текущий каркас: 18 тестов, три файла с покрытием 100%. Playwright запускает два smoke-теста production-сборки в Chromium: desktop и эмуляция Pixel 7. Это не проверка всей целевой браузерной матрицы или будущих функций.
+Для собственного runtime-кода закреплён блокирующий порог **100% lines/statements/functions/branches на каждый файл**. [Правила и исключения](../../techDocs/process/testing.md). Текущая основа: 28 unit-тестов, четыре runtime-файла с покрытием 100%; barrel index.ts содержит только экспорты. Каталог проверяют 9 браузерных тестов. Playwright запускает два smoke-теста production-сборки в Chromium: desktop и эмуляция Pixel 7. Это не проверка всей целевой браузерной матрицы или будущих функций.
 
 Отчёты: `coverage/index.html`, `coverage/coverage-summary.json`, `coverage/lcov.info`, `playwright-report/index.html`; при падении E2E сохраняется trace. Все отчёты исключены из Git.
 
-[Workflow Frontend](../../.github/workflows/frontend.yml) выполняет установку по lockfile, `check`, production build и браузерные тесты на PR в `main`/`develop`, а также push этих веток. Артефакты `frontend-quality-reports` и `frontend-dist` хранятся 14 дней. Ошибка шага завершает проверку неуспешно. Сборка каталога будет добавлена вместе со Storybook в блоке C. Обязательность статуса для merge задаётся отдельно правилами GitHub.
+[Workflow Frontend](../../.github/workflows/frontend.yml) выполняет установку по lockfile, `check`, production build и браузерные тесты на PR в `main`/`develop`, а также push этих веток. Артефакты `frontend-quality-reports` и `frontend-dist` хранятся 14 дней. Ошибка шага завершает проверку неуспешно. Каталог собирается и проверяется отдельными шагами; артефакт `frontend-catalog` хранится 14 дней. Обязательность статуса для merge задаётся отдельно правилами GitHub.
 
 ## Диагностика
 
 - `EBADENGINE`: сверить Node/npm с `.nvmrc` и `packageManager`, затем `npm ci`.
-- Занят порт: остановить свой предыдущий сервер либо передать `--port`; тесты ожидают свободный 4173.
+- Занят порт: остановить свой предыдущий сервер либо передать `--port`; тесты ожидают свободные 4173 и 6006.
 - Нет браузера Playwright: выполнить `npx playwright install chromium`.
 - Preview показывает старый код: сначала повторить `npm run build`.
 - Ошибка вложенного URL на внешнем хостинге: проверить SPA fallback на `index.html`.
 - Ошибка coverage: открыть HTML-отчёт и добавить сценарий для непокрытого поведения; не снижать порог и не скрывать файл.
+
+## Каталог и UI-контракты
+
+- `npm run catalog` — Storybook на http://127.0.0.1:6006.
+- `npm run catalog:build` / `npm run catalog:preview` — статическая сборка и просмотр.
+- `npm run test:catalog` — браузерные проверки собранного каталога.
+- `npm run generate:ui` / `npm run generate:check` — генерация UI-типов / проверка diff.
+
+Обзор основ содержит Light/Dark, viewport 320/390/768/1440, шрифты, палитру, размеры и иконки. Icon имеет controls имени и размера. Управляющие компоненты следуют в блоке D.
+[Токены, Figma ID, контракты и правила синхронизации](../../techDocs/services/frontend/ui-foundations.md).

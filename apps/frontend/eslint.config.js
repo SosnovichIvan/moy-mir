@@ -8,10 +8,13 @@ export default tseslint.config(
   {
     ignores: [
       'dist/**',
+      'src/shared/ui/generated/**',
       'coverage/**',
       'storybook-static/**',
       'playwright-report/**',
       'test-results/**',
+      'catalog-report/**',
+      'catalog-results/**',
     ],
   },
   js.configs.recommended,

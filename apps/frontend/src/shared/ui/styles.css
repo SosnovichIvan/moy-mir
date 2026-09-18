@@ -1,0 +1,42 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/manrope';
+@import 'tailwindcss';
+@import './tokens.css';
+
+@layer base {
+  body {
+    margin: 0;
+    background: var(--mm-bg);
+    color: var(--mm-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+  :focus-visible {
+    outline: 2px solid var(--mm-focus);
+    outline-offset: 4px;
+  }
+}
+
+.mm-icon {
+  display: inline-block;
+  flex: none;
+  width: var(--mm-icon-m);
+  height: var(--mm-icon-m);
+  background-color: currentColor;
+  mask: var(--mm-icon-source) center / contain no-repeat;
+}
+.mm-icon[data-size='s'] {
+  width: var(--mm-icon-s);
+  height: var(--mm-icon-s);
+}
+.mm-icon[data-size='l'] {
+  width: var(--mm-icon-l);
+  height: var(--mm-icon-l);
+}
