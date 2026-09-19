@@ -24,3 +24,9 @@ export type { DialogConfiguration } from './generated/dialog';
 export { Navigation, NavigationItem } from './navigation';
 export type { NavigationConfiguration } from './generated/navigation';
 export type { NavigationItemConfiguration } from './generated/navigationItem';
+
+export { EntityCard } from './entityCard';
+export type {
+  EntityCardConfiguration,
+  EntityCardAction,
+} from './generated/entityCard';

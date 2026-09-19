@@ -63,7 +63,7 @@ Formatter: `npm run format`; проверка без изменений: `npm ru
 
 `npm test` — разовый прогон; `npm run test:watch` — разработка; `npm run test:coverage` — покрытие. `npm run check` включает lint, typecheck, форматирование и coverage. Vitest/Testing Library используют jsdom и настоящий React renderer.
 
-Для собственного runtime-кода закреплён блокирующий порог **100% lines/statements/functions/branches на каждый файл**. [Правила и исключения](../../techDocs/process/testing.md). Текущая библиотека: 104 unit-теста, двенадцать runtime-файлов с покрытием 100%; barrel index.ts содержит только экспорты. Каталог проверяют 93 браузерных теста. Playwright запускает два smoke-теста production-сборки в Chromium: desktop и эмуляция Pixel 7. Это не проверка всей целевой браузерной матрицы или будущих функций.
+Для собственного runtime-кода закреплён блокирующий порог **100% lines/statements/functions/branches на каждый файл**. [Правила и исключения](../../techDocs/process/testing.md). Текущая библиотека: 121 unit-тест, тринадцать runtime-файлов с покрытием 100%; barrel index.ts содержит только экспорты. Каталог проверяют 114 браузерных тестов. Playwright запускает два smoke-теста production-сборки в Chromium: desktop и эмуляция Pixel 7. Это не проверка всей целевой браузерной матрицы или будущих функций.
 
 FE-16: экспорты `Avatar`, `Badge`, `CountBadge`; [API и проверки](../../techDocs/services/frontend/avatar-badge.md). Каталог: `?path=/story/avatar--overview` и `?path=/story/badge--overview`, отдельные Light/Dark stories.
 
@@ -93,3 +93,5 @@ FE-16: экспорты `Avatar`, `Badge`, `CountBadge`; [API и проверк�
 FE-17: `InfoBanner` и `Dialog`; [API и проверки](../../techDocs/services/frontend/info-banner-dialog.md). Stories: `info-banner--overview`, `dialog--overview`, Light/Dark.
 
 FE-18: `Navigation` и `NavigationItem`; [API, подключение router и проверки](../../techDocs/services/frontend/navigation.md). Stories: `navigation--overview`, `navigation--light`, `navigation--dark`.
+
+FE-19: `EntityCard`; [API, управление состоянием и проверки](../../techDocs/services/frontend/entity-card.md#реализация-fe-19). Stories: `entity-card--overview`, `entity-card--light`, `entity-card--dark`.

@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EntityCardConfiguration",
+  "description": "Controlled UI presentation, not a server relationship or permission model.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "state"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "detail": {
+      "type": "string"
+    },
+    "avatarSrc": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "new",
+        "pending",
+        "incoming",
+        "friend",
+        "blocked",
+        "member"
+      ]
+    },
+    "href": {
+      "type": "string",
+      "minLength": 1
+    },
+    "loadingAction": {
+      "$ref": "#/definitions/EntityCardAction"
+    },
+    "error": {
+      "type": "string"
+    },
+    "statusMessage": {
+      "type": "string"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "state": {
+          "const": "new"
+        },
+        "loadingAction": {
+          "const": "add"
+        }
+      },
+      "required": [
+        "state"
+      ]
+    },
+    {
+      "properties": {
+        "state": {
+          "const": "pending"
+        },
+        "loadingAction": {
+          "const": "cancel"
+        }
+      },
+      "required": [
+        "state"
+      ]
+    },
+    {
+      "properties": {
+        "state": {
+          "const": "incoming"
+        },
+        "loadingAction": {
+          "enum": [
+            "accept",
+            "decline"
+          ]
+        }
+      },
+      "required": [
+        "state"
+      ]
+    },
+    {
+      "properties": {
+        "state": {
+          "const": "blocked"
+        },
+        "loadingAction": {
+          "const": "unblock"
+        }
+      },
+      "required": [
+        "state"
+      ]
+    },
+    {
+      "required": [
+        "href",
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "friend",
+            "member"
+          ]
+        },
+        "loadingAction": false,
+        "href": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "EntityCardAction": {
+      "type": "string",
+      "enum": [
+        "add",
+        "cancel",
+        "accept",
+        "decline",
+        "unblock"
+      ]
+    }
+  }
+}

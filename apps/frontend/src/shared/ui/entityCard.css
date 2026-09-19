@@ -1,0 +1,120 @@
+.mm-entity-card {
+  container-type: inline-size;
+  min-width: 0;
+  padding: var(--mm-space-16);
+  border: 1px solid var(--mm-line);
+  border-radius: var(--mm-radius-20);
+  background: var(--mm-surface);
+  color: var(--mm-ink);
+}
+
+.mm-entity-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--mm-space-16);
+}
+
+.mm-entity-card-identity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--mm-space-12);
+  min-width: 0;
+  width: 100%;
+}
+
+.mm-entity-card-info {
+  flex: 1 1 10rem;
+  min-width: 0;
+  display: grid;
+  gap: var(--mm-space-4);
+  overflow-wrap: anywhere;
+}
+
+.mm-entity-card-title {
+  font-size: var(--text-title);
+  line-height: var(--text-title--line-height);
+}
+
+.mm-entity-card-detail,
+.mm-entity-card-error {
+  font-size: var(--text-caption);
+  line-height: var(--text-caption--line-height);
+}
+
+.mm-entity-card-detail {
+  color: var(--mm-muted);
+}
+.mm-entity-card-error {
+  color: var(--mm-danger);
+  margin-top: var(--mm-space-16);
+  overflow-wrap: anywhere;
+}
+.mm-entity-card-error:empty {
+  margin-top: 0;
+}
+
+.mm-entity-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: var(--mm-space-8);
+  max-width: 100%;
+  min-width: 0;
+}
+
+.mm-entity-card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  min-height: var(--mm-control-m);
+  max-width: 100%;
+  padding: var(--mm-space-12);
+  border-radius: var(--mm-radius-16);
+  background: var(--mm-soft);
+  color: var(--mm-accent);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  font-weight: 600;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+@container (min-width: 40rem) {
+  .mm-entity-card-content {
+    flex-direction: row;
+    align-items: center;
+  }
+  .mm-entity-card-identity {
+    flex: 1;
+    width: auto;
+  }
+  .mm-entity-card-actions {
+    flex: 0 1 auto;
+  }
+}
+
+@media (hover: hover) {
+  .mm-entity-card-link:hover {
+    background: var(--mm-line);
+  }
+}
+.mm-entity-card-link:active {
+  background: var(--mm-accent);
+  color: var(--mm-onAccent);
+}
+.mm-entity-card-link:focus-visible {
+  outline: 2px solid var(--mm-ink);
+  outline-offset: -2px;
+}
+
+@media (forced-colors: active) {
+  .mm-entity-card-link {
+    border: 1px solid LinkText;
+  }
+  .mm-entity-card-link:focus-visible {
+    outline-color: Highlight;
+  }
+}
