@@ -1,6 +1,6 @@
 # frontend: Общий frontend
 
-Актуально: предложение FE-20 согласовано. Message/EventCard/PostCard/WorkoutEntry дополнены в Figma; созданы 12 Light/Dark-листов для 320/390/768/1440, loading/error и длинного текста 200%. [Варианты, ссылки и проверки](content-components.md). Следующий шаг — визуальная приёмка; код FE-20 не начат.
+Актуально: визуальные листы FE-20 согласованы. Message/EventCard/PostCard/WorkoutEntry реализованы с generated UI-контрактами, responsive-каталогом и тестами; [API, границы и проверки](content-components.md#реализация-fe-20--2026-09-19). Результат готов к ревью; продуктовые API R2–R5 не входят.
 
 ## История предыдущих этапов
 

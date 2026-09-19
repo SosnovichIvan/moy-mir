@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WorkoutEntryConfiguration",
+  "description": "Controlled workout journal presentation; summary compression never means history deletion.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["metric", "dateLabel"],
+  "properties": {
+    "metric": { "enum": ["strength", "distance", "summary"] },
+    "dateLabel": { "type": "string", "minLength": 1 },
+    "exercise": { "type": "string", "minLength": 1 },
+    "sets": { "type": "integer", "minimum": 1 },
+    "repetitions": { "type": "integer", "minimum": 1 },
+    "weightLabel": { "type": "string", "minLength": 1 },
+    "activity": { "type": "string", "minLength": 1 },
+    "distanceLabel": { "type": "string", "minLength": 1 },
+    "durationLabel": { "type": "string", "minLength": 1 },
+    "periodLabel": { "type": "string", "minLength": 1 },
+    "lastResult": { "type": "string", "minLength": 1 },
+    "compressedAtLabel": { "type": "string", "minLength": 1 },
+    "lastResultAtLabel": { "type": "string", "minLength": 1 },
+    "href": { "type": "string", "minLength": 1 },
+    "statusMessage": { "type": "string" }
+  },
+  "oneOf": [
+    {
+      "required": ["metric", "exercise", "sets", "repetitions", "weightLabel"],
+      "properties": {
+        "metric": { "const": "strength" },
+        "exercise": { "type": "string", "minLength": 1 },
+        "sets": { "type": "integer", "minimum": 1 },
+        "repetitions": { "type": "integer", "minimum": 1 },
+        "weightLabel": { "type": "string", "minLength": 1 }
+      }
+    },
+    {
+      "required": ["metric", "activity", "distanceLabel", "durationLabel"],
+      "properties": {
+        "metric": { "const": "distance" },
+        "activity": { "type": "string", "minLength": 1 },
+        "distanceLabel": { "type": "string", "minLength": 1 },
+        "durationLabel": { "type": "string", "minLength": 1 }
+      }
+    },
+    {
+      "required": [
+        "metric",
+        "periodLabel",
+        "lastResult",
+        "compressedAtLabel",
+        "lastResultAtLabel"
+      ],
+      "properties": {
+        "metric": { "const": "summary" },
+        "periodLabel": { "type": "string", "minLength": 1 },
+        "lastResult": { "type": "string", "minLength": 1 },
+        "compressedAtLabel": { "type": "string", "minLength": 1 },
+        "lastResultAtLabel": { "type": "string", "minLength": 1 }
+      }
+    }
+  ]
+}
