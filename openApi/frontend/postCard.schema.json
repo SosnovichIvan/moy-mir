@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PostCardConfiguration",
+  "description": "Controlled feed post presentation; reaction state and count are supplied by the owner.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "author",
+    "publishedLabel",
+    "audience",
+    "body",
+    "reactionCount",
+    "liked"
+  ],
+  "properties": {
+    "author": { "type": "string", "minLength": 1 },
+    "publishedLabel": { "type": "string", "minLength": 1 },
+    "audience": { "type": "string", "minLength": 1 },
+    "body": { "type": "string", "minLength": 1 },
+    "reactionCount": { "type": "integer", "minimum": 0 },
+    "liked": { "type": "boolean" },
+    "loading": { "type": "boolean", "default": false },
+    "error": { "type": "string" },
+    "statusMessage": { "type": "string" }
+  }
+}

@@ -1,5 +1,7 @@
 # Контракты frontend
 
+FE-20 добавляет четыре сериализуемые UI-схемы: `message.schema.json`, `eventCard.schema.json`, `postCard.schema.json` и `workoutEntry.schema.json`. Они описывают только подтверждённые данные и controlled-состояния представления. Callbacks, DOM bindings и выбор responsive-компоновки остаются техническими props. Генерация включает 17 схем.
+
 FE-19 добавляет `entityCard.schema.json`: сериализуемая UI-конфигурация шести состояний, допустимое действие загрузки и обязательный адрес для Friend/Member. Это не серверная модель дружбы или группы. Генерируется `src/shared/ui/generated/entityCard.ts`; callbacks и нативные свойства ссылки остаются техническими props. Вместе с двумя схемами Navigation генерация теперь включает 13 схем.
 
 FE-17 добавляет `infoBanner.schema.json` и `dialog.schema.json`: конфигурации генерируются в одноимённые файлы `src/shared/ui/generated/`. Всего `generate:check` проверяет десять схем. React callbacks, слоты и DOM refs остаются техническими props.

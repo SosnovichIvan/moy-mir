@@ -11,6 +11,7 @@
 @import './dialog.css';
 @import './navigation.css';
 @import './entityCard.css';
+@import './contentCards.css';
 
 @layer base {
   body {

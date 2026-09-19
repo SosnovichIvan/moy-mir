@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EventCardConfiguration",
+  "description": "Controlled event summary presentation; permissions and mutations belong to the owner.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "dateTime",
+    "dateLabel",
+    "timeZoneLabel",
+    "title",
+    "details",
+    "state"
+  ],
+  "properties": {
+    "dateTime": { "type": "string", "format": "date-time" },
+    "dateLabel": { "type": "string", "minLength": 1 },
+    "timeZoneLabel": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "details": { "type": "string", "minLength": 1 },
+    "state": { "enum": ["invited", "joined", "cancelled"] },
+    "href": { "type": "string", "minLength": 1 },
+    "loading": { "type": "boolean", "default": false },
+    "error": { "type": "string" },
+    "statusMessage": { "type": "string" }
+  },
+  "oneOf": [
+    {
+      "required": ["state"],
+      "properties": {
+        "state": { "const": "invited" },
+        "href": false
+      }
+    },
+    {
+      "required": ["state", "href"],
+      "properties": {
+        "state": { "const": "joined" },
+        "href": { "type": "string", "minLength": 1 },
+        "loading": false,
+        "error": false
+      }
+    },
+    {
+      "required": ["state"],
+      "properties": {
+        "state": { "const": "cancelled" },
+        "href": false,
+        "loading": false,
+        "error": false
+      }
+    }
+  ]
+}

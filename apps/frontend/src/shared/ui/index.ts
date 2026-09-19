@@ -30,3 +30,12 @@ export type {
   EntityCardConfiguration,
   EntityCardAction,
 } from './generated/entityCard';
+
+export { Message } from './message';
+export type { MessageConfiguration } from './generated/message';
+export { EventCard } from './eventCard';
+export type { EventCardConfiguration } from './generated/eventCard';
+export { PostCard } from './postCard';
+export type { PostCardConfiguration } from './generated/postCard';
+export { WorkoutEntry } from './workoutEntry';
+export type { WorkoutEntryConfiguration } from './generated/workoutEntry';

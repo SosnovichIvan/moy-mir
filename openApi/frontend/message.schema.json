@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MessageConfiguration",
+  "description": "Controlled chat message presentation; delivery state is supplied by the owner.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["body", "timeLabel", "state"],
+  "properties": {
+    "author": { "type": "string", "minLength": 1 },
+    "body": { "type": "string", "minLength": 1 },
+    "timeLabel": { "type": "string", "minLength": 1 },
+    "state": {
+      "enum": ["incoming", "sent", "sending", "failed"]
+    },
+    "statusMessage": { "type": "string" }
+  }
+}

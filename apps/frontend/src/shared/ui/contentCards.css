@@ -1,0 +1,196 @@
+.mm-message,
+.mm-event-card,
+.mm-post-card,
+.mm-workout-entry {
+  min-width: 0;
+  border-radius: var(--mm-radius-20);
+  color: var(--mm-ink);
+  overflow-wrap: anywhere;
+}
+
+.mm-message {
+  width: fit-content;
+  max-width: min(85%, 42rem);
+  padding: var(--mm-space-16);
+  background: var(--mm-surface);
+}
+
+.mm-message[data-direction='outgoing'] {
+  margin-inline-start: auto;
+  background: var(--mm-soft);
+}
+
+.mm-message-author {
+  display: block;
+  color: var(--mm-accent);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+}
+
+.mm-message-body {
+  margin-top: var(--mm-space-8);
+  white-space: pre-wrap;
+}
+
+.mm-message-meta,
+.mm-event-card-date,
+.mm-post-card-meta,
+.mm-workout-entry-date,
+.mm-workout-entry-status {
+  color: var(--mm-muted);
+  font-size: var(--text-caption);
+  line-height: var(--text-caption--line-height);
+}
+
+.mm-message-meta {
+  margin-top: var(--mm-space-4);
+}
+
+.mm-message .mm-button {
+  margin-top: var(--mm-space-12);
+}
+
+.mm-message-error,
+.mm-card-error,
+.mm-event-card-state[data-danger='true'] {
+  color: var(--mm-danger);
+}
+
+.mm-event-card,
+.mm-post-card,
+.mm-workout-entry {
+  container-type: inline-size;
+  width: 100%;
+  padding: var(--mm-space-20);
+  border: 1px solid var(--mm-line);
+  background: var(--mm-surface);
+}
+
+.mm-event-card[data-state='invited'] {
+  background: var(--mm-soft);
+}
+
+.mm-event-card-content,
+.mm-event-card-info,
+.mm-post-card,
+.mm-workout-entry-content {
+  display: grid;
+}
+
+.mm-event-card-content {
+  gap: var(--mm-space-20);
+}
+
+.mm-event-card-info {
+  min-width: 0;
+  gap: var(--mm-space-8);
+}
+
+.mm-event-card-title,
+.mm-post-card-author,
+.mm-workout-entry-title {
+  font-size: var(--text-title);
+  line-height: var(--text-title--line-height);
+}
+
+.mm-event-card-state {
+  color: var(--mm-accent);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  font-weight: 600;
+}
+
+.mm-event-card-action,
+.mm-workout-entry-action {
+  min-width: 0;
+}
+
+.mm-card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 96px;
+  min-height: var(--mm-control-m);
+  max-width: 100%;
+  padding: var(--mm-space-12);
+  border-radius: var(--mm-radius-16);
+  background: var(--mm-soft);
+  color: var(--mm-accent);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  font-weight: 600;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.mm-card-error {
+  margin-top: var(--mm-space-12);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+}
+
+.mm-card-error:empty {
+  margin-top: 0;
+}
+
+.mm-post-card {
+  max-width: 40rem;
+  gap: var(--mm-space-12);
+}
+
+.mm-post-card-body {
+  white-space: pre-wrap;
+}
+
+.mm-workout-entry-content {
+  gap: var(--mm-space-16);
+  align-items: center;
+}
+
+.mm-workout-entry-result {
+  white-space: pre-wrap;
+}
+
+.mm-workout-entry[data-metric='summary'] {
+  background: var(--mm-alt);
+}
+
+@container (min-width: 40rem) {
+  .mm-event-card-content {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--mm-space-24);
+  }
+}
+
+@container (min-width: 48rem) {
+  .mm-workout-entry-content {
+    grid-template-columns: 6.25rem 11.25rem 9.375rem minmax(0, 1fr) auto;
+  }
+}
+
+@media (hover: hover) {
+  .mm-card-link:hover {
+    background: var(--mm-line);
+  }
+}
+
+.mm-card-link:active {
+  background: var(--mm-accent);
+  color: var(--mm-onAccent);
+}
+
+.mm-card-link:focus-visible {
+  outline: 2px solid var(--mm-ink);
+  outline-offset: -2px;
+}
+
+@media (forced-colors: active) {
+  .mm-card-link {
+    border: 1px solid LinkText;
+  }
+  .mm-card-link:focus-visible {
+    outline-color: Highlight;
+  }
+}
